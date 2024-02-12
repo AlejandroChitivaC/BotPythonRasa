@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Chatbot</title>
+</head>
+<body>
+    <div class="form-group">
+    <input type="text" id="user-input" class="form-control" placeholder="Escribe tu mensaje...">
+    <button onclick="sendMessage()" class="btn btn-primary">Enviar</button>
+</div>
+
+
+   <script>
+    function sendMessage() {
+        const userMessage = document.getElementById("user-input").value;
+        const chatDisplay = document.getElementById("chat-display");
+
+        // Enviar mensaje del usuario al servidor y obtener la respuesta del chatbot
+        fetch("/get_response", {
+            method: "POST",
+            body: new URLSearchParams({ "user_message": userMessage }),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const botResponse = data.response;
+            chatDisplay.innerHTML += `<div><strong>Bot:</strong> ${botResponse}</div>`;
+        });
+    }
+
+    // Manejar el evento cuando se presiona la tecla "Enter"
+    document.getElementById("user-input").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+    });
+</script>
+
+</body>
+</html>
