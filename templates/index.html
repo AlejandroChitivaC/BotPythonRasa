@@ -82,7 +82,7 @@
         function sendMessage() {
             const userMessage = document.getElementById("user-input").value;
             const chatDisplay = document.getElementById("chat-display");
-
+            console.log(userMessage)
             // Enviar mensaje del usuario al servidor y obtener la respuesta del chatbot
             fetch("/get_response", {
                 method: "POST",
@@ -109,7 +109,6 @@
                 chatDisplay.scrollTop = chatDisplay.scrollHeight;
             });
 
-            // Limpiar el campo de entrada después de enviar el mensaje
             document.getElementById("user-input").value = "";
         }
 

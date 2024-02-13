@@ -1,37 +1,47 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - goodbye
+  - about_company
   - affirm
+  - bad_request
+  - bot_challenge
+  - contact_assessor
   - deny
+  - goodbye
+  - greet
   - mood_great
   - mood_unhappy
-  - bot_challenge
-
+  - systems_assessor
 responses:
   utter_greet:
-    - text: "Hola, bienvenido a BBIC ¿En qué puedo ayudarte?"
+    - text: 'Hola, bienvenido a BBIC ¿En qué puedo ayudarte?'
       buttons:
-        - title: "Mostrar Opciones"
-          payload: "/mostrar_opciones"
-
+        - title: Mostrar Opciones
+          payload: /mostrar_opciones
   utter_cheer_up:
-    - text: "Aquí hay algo para animarte:"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
-
+    - text: 'Aquí hay algo para animarte:'
+      image: 'https://i.imgur.com/nGF1K8f.jpg'
   utter_did_that_help:
-    - text: "¿Te ayudó eso?"
-
+    - text: ¿Te ayudó eso?
   utter_happy:
-    - text: "Bien, gracias!"
-
+    - text: 'Bien, gracias!'
   utter_goodbye:
-    - text: "Hasta pronto!"
-
+    - text: Hasta pronto!
   utter_iamabot:
-    - text: "Soy un bot, creado por BBIC"
-
+    - text: 'Soy un bot, creado por BBIC'
+  utter_contact_assessor:
+    - text: Será contactado por un asesor
+  utter_systems_assessor:
+    - text: Será contactado por sistemas
+  utter_about_company:
+    - text: >-
+        Somos una empresa de transporte expreso de documentos y mercancías,
+        representantes exclusivos y agentes comerciales de SKYNET International
+        Courier, con cobertura mundial.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+actions:
+  - utter_about_company
+  - utter_happy
+  - end_chat
+  - utter_goodbye
