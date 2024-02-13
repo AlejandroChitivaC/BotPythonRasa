@@ -5,42 +5,120 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .chat-container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f8f9fa; /* Bootstrap's background color */
+            display: none; /* Ocultar por defecto el contenedor del chat */
+            border-radius: 10px;
+        }
+
+        #chat-display {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        #bot-avatar {
+            width: 50px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .user-message, .bot-message {
+            margin-bottom: 10px;
+        }
+
+        .user-message {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .bot-message {
+            background-color: #6c757d;
+            color: #fff;
+        }
+    </style>
     <title>Chatbot</title>
 </head>
 <body>
-    <div class="form-group">
-    <input type="text" id="user-input" class="form-control" placeholder="Escribe tu mensaje...">
-    <button onclick="sendMessage()" class="btn btn-primary">Enviar</button>
-</div>
+    <!-- Botón para abrir el chatbot -->
+    <button id="chat-btn" class="btn btn-primary" onclick="toggleChat()">ChatBot</button>
 
+    <!-- Contenedor del chat -->
+    <div class="chat-container">
+        <div id="chat-display" class="mb-3"></div>
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" placeholder="Escribe tu mensaje...">
+            <div class="input-group-append">
+                <button onclick="sendMessage()" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
 
-   <script>
-    function sendMessage() {
-        const userMessage = document.getElementById("user-input").value;
-        const chatDisplay = document.getElementById("chat-display");
-
-        // Enviar mensaje del usuario al servidor y obtener la respuesta del chatbot
-        fetch("/get_response", {
-            method: "POST",
-            body: new URLSearchParams({ "user_message": userMessage }),
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            const botResponse = data.response;
-            chatDisplay.innerHTML += `<div><strong>Bot:</strong> ${botResponse}</div>`;
-        });
-    }
-
-    // Manejar el evento cuando se presiona la tecla "Enter"
-    document.getElementById("user-input").addEventListener("keyup", function(event) {
-        if (event.key === "Enter") {
-            sendMessage();
+    <script>
+        // Función para mostrar/ocultar el contenedor del chat al hacer clic en el botón
+        function toggleChat() {
+            const chatContainer = document.querySelector('.chat-container');
+            chatContainer.style.display = (chatContainer.style.display === 'none' || chatContainer.style.display === '') ? 'block' : 'none';
         }
-    });
-</script>
 
+        function sendMessage() {
+            const userMessage = document.getElementById("user-input").value;
+            const chatDisplay = document.getElementById("chat-display");
+
+            // Enviar mensaje del usuario al servidor y obtener la respuesta del chatbot
+            fetch("/get_response", {
+                method: "POST",
+                body: new URLSearchParams({ "user_message": userMessage }),
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botResponse = data.response;
+
+                // Mostrar el mensaje del usuario
+                chatDisplay.innerHTML += `<div class="user-message alert alert-primary"><strong>Tú:</strong> ${userMessage}</div>`;
+
+                // Mostrar la respuesta del bot con avatar
+                chatDisplay.innerHTML += `
+                    <div class="bot-message alert alert-secondary">
+                        <img id="bot-avatar" width="100%" src="https://bbiccolombia.netlify.app/assets/img/bbic/logo.png" alt="Bot BBIC">
+                        <strong>BBIC Colombia:</strong> ${botResponse}
+                    </div>`;
+
+                // Hacer scroll hacia abajo para mostrar el último mensaje
+                chatDisplay.scrollTop = chatDisplay.scrollHeight;
+            });
+
+            // Limpiar el campo de entrada después de enviar el mensaje
+            document.getElementById("user-input").value = "";
+        }
+
+        // Manejar el evento cuando se presiona la tecla "Enter"
+        document.getElementById("user-input").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
 </body>
 </html>
