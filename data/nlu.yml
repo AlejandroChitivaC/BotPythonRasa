@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: greet
   examples: |
@@ -9,6 +8,7 @@ nlu:
     - buen dia
     - buenos dias
     - hi
+    - Hol
 
 - intent: goodbye
   examples: |
@@ -22,6 +22,8 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - chao
+    - Adios
 
 - intent: affirm
   examples: |
@@ -31,6 +33,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - yghjkgk
 
 - intent: deny
   examples: |
@@ -74,7 +77,6 @@ nlu:
     - not very good
     - extremely sad
     - so sad
-    - so sad
 
 - intent: bot_challenge
   examples: |
@@ -87,3 +89,46 @@ nlu:
   examples: |
     - Cómo esta?
     - Como estás?
+
+- intent: bad_request
+  examples: |
+    - ????
+    - ¡?
+    - ¿?
+    - '''
+    - ...
+    - \.,-´¿'\[\]¨\{\}
+    - 1,2,3,4,5,6,7,8,9
+    - 231
+    - aaa
+    - xyz
+    - ccc
+    - asdacs
+    - dfdbgx
+    - qwg4gerddf
+    - bbbb
+    - jjjjjj
+
+- intent: about_company
+  examples: |
+    - Quien es BBIC
+    - BBIC?
+    - BBIC
+    - Que es BBIC
+    - bbc
+    - vvic
+    - BBIc
+    - bbic
+
+- intent: contact_assessor
+  examples: |
+    - Asesor
+    - asesor
+
+- intent: systems_assessor
+  examples: |
+    - sistemas
+    - soporte
+    - sistema
+    - Sistmas
+    - sistm

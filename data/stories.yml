@@ -28,3 +28,30 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: about_company
+  - action: utter_about_company
+  - action: utter_goodbye
+
+
+- story: interactive_story_1
+  steps:
+  - intent: contact_assessor
+  - action: utter_contact_assessor
+  - action: utter_goodbye
+  - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: systems_assessor
+  - action: utter_goodbye
+  - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - action: utter_happy
+  - intent: about_company
+  - intent: bad_request
+  - intent: affirm
