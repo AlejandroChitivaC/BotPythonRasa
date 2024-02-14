@@ -100,3 +100,10 @@ stories:
   - action: utter_systems_assessor
   - action: utter_goodbye
   - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: systems_assessor
+  - action: utter_systems_assessor
+  - action: utter_goodbye
+  - action: end_chat

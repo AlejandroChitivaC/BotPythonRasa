@@ -41,10 +41,10 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
+- utter_goodbye
+- utter_systems_assessor
 - end_chat
 - utter_greet
-- utter_systems_assessor
-- utter_goodbye
 - utter_contact_assessor
 - utter_about_company
 - utter_happy
