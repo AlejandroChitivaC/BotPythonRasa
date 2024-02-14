@@ -40,7 +40,8 @@
             height: 40px;
             margin-right: 10px;
         }
-        #logo-bbic{
+
+        #logo-bbic {
             width: 100px;
             height: 60px;
         }
@@ -117,7 +118,7 @@
             .then(response => response.json())
             .then(data => {
                 const botResponse = data.response;
-
+                console.log(botResponse)
                 // User message
                 chatDisplay.innerHTML += `
                 <div class="user-message alert alert-primary">
@@ -125,6 +126,13 @@
                 <strong>Tú:</strong>
                 ${userMessage}</div>`;
 
+                if (botResponse === "Será contactado por sistemas") {
+                    alert("Si sirve como se quiere hacer (Sistemas)")
+                }
+
+                if (botResponse === "Será contactado por un asesor de servicio al cliente") {
+                    alert("Si sirve como se quiere hacer (SAC asesor)")
+                }
                 // Bot response with avatar
                 chatDisplay.innerHTML += `
                     <div class="bot-message alert alert-secondary">

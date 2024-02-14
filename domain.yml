@@ -10,6 +10,7 @@ intents:
 - greet
 - mood_great
 - mood_unhappy
+- nlu_fallback
 - systems_assessor
 responses:
   utter_greet:
@@ -40,9 +41,10 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
+- end_chat
+- utter_greet
+- utter_systems_assessor
 - utter_goodbye
 - utter_contact_assessor
-- end_chat
-- utter_systems_assessor
 - utter_about_company
 - utter_happy

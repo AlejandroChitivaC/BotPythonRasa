@@ -285,6 +285,10 @@ nlu:
 
       </body>
       </html>
+  - text: |
+      -.-.
+  - text: |
+      let= document.getElementById
 - intent: about_company
   examples: |
     - Quien es BBIC

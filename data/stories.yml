@@ -85,3 +85,18 @@ stories:
   - action: utter_contact_assessor
   - action: utter_goodbye
   - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: bad_request
+  - intent: bad_request
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: nlu_fallback
+  - intent: systems_assessor
+  - action: utter_systems_assessor
+  - action: utter_goodbye
+  - action: end_chat
