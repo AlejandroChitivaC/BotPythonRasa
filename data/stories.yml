@@ -29,19 +29,41 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-- story: interactive_story_1
+- story: about_company_story
   steps:
   - intent: about_company
   - action: utter_about_company
   - action: utter_goodbye
 
-
-- story: interactive_story_1
+- story: contact_assessor_story
   steps:
   - intent: contact_assessor
   - action: utter_contact_assessor
   - action: utter_goodbye
   - action: end_chat
+
+- story: systems_assessor_story
+  steps:
+  - intent: systems_assessor
+  - action: utter_systems_assessor
+  - action: utter_goodbye
+  - action: end_chat
+
+- story: mixed_story
+  steps:
+  - action: utter_happy
+  - intent: about_company
+  - intent: bad_request
+  - intent: affirm
+
+
+
+- story: interactive_story_1
+  steps:
+  - intent: mood_unhappy
+  - intent: bad_request
+  - intent: bot_challenge
+  - intent: bad_request
 
 - story: interactive_story_1
   steps:
@@ -51,7 +73,15 @@ stories:
 
 - story: interactive_story_1
   steps:
-  - action: utter_happy
-  - intent: about_company
-  - intent: bad_request
-  - intent: affirm
+  - intent: systems_assessor
+  - action: utter_systems_assessor
+  - action: utter_goodbye
+  - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: systems_assessor
+  - intent: contact_assessor
+  - action: utter_contact_assessor
+  - action: utter_goodbye
+  - action: end_chat
