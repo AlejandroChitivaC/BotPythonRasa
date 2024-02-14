@@ -9,4 +9,4 @@ rules:
   - rule: Say bad_request on code injection intent
     steps:
     - intent: inject_code
-    - action: bad_request
+    - action: utter_bad_request
