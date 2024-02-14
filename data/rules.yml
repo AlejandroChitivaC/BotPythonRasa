@@ -1,9 +1,12 @@
 version: "3.1"
 
 rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+    - intent: goodbye
+    - action: utter_goodbye
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
-
+  - rule: Say bad_request on code injection intent
+    steps:
+    - intent: inject_code
+    - action: bad_request

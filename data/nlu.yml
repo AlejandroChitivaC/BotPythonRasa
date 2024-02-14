@@ -307,3 +307,6 @@ nlu:
     - sistema
     - Sistmas
     - sistm
+- regex: inject_code
+  examples: |
+    - ^[!@#$%^&*,/\\\\()¿~_'<>:;+.=?-]$
