@@ -107,3 +107,58 @@ stories:
   - action: utter_systems_assessor
   - action: utter_goodbye
   - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: bad_request
+  - action: utter_bad_request
+
+stories.yml:
+
+- story: User provides inject code
+  steps:
+  - user: |
+      ¡?
+  - intent: bad_request
+  - action: utter_bad_request
+
+
+
+
+
+- story: interactive_story_1
+  steps:
+  - intent: about_company
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: interactive_story_1
+  steps:
+  - intent: nlu_fallback
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: interactive_story_1
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: interactive_story_1
+  steps:
+  - intent: send_email
+  - action: utter_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: send_email
+  - action: utter_send_email
+  - action: utter_goodbye
+  - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: send_email
+  - action: utter_send_email
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: end_chat

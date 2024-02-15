@@ -13,7 +13,7 @@ def home():
 @app.route("/get_response", methods=["POST"])
 async def get_response():
     user_message = request.form["user_message"]
-    responses = await rasa_agent.handle_text(user_message)
+    responses = await rasa_agent.handle_text(str(user_message))
     bot_response = responses[0]["text"]
     return {"response": bot_response}
 

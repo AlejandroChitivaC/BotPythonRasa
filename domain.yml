@@ -1,4 +1,6 @@
 version: '3.1'
+entities:
+- inject_code
 intents:
 - about_company
 - affirm
@@ -11,6 +13,7 @@ intents:
 - mood_great
 - mood_unhappy
 - nlu_fallback
+- send_email
 - systems_assessor
 responses:
   utter_greet:
@@ -37,13 +40,18 @@ responses:
   - text: Somos una empresa de transporte expreso de documentos y mercancías, representantes exclusivos y agentes comerciales de SKYNET International Courier, con cobertura mundial.
   utter_bad_request:
   - text: Oops, no entendí eso, intenté ser más claro.
+  utter_send_email:
+  - text: Entendido, de clic en el botón que lo llevará al formulario de contacto.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
 - utter_goodbye
-- utter_systems_assessor
+- utter_send_email
 - end_chat
+- utter_iamabot
+- utter_bad_request
+- utter_systems_assessor
 - utter_greet
 - utter_contact_assessor
 - utter_about_company
