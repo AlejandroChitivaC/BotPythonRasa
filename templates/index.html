@@ -128,12 +128,19 @@
 
                 if (botResponse === "Será contactado por sistemas") {
                     alert("Si sirve como se quiere hacer (Sistemas)")
-                    location.href = "https://api.whatsapp.com/send?phone=573113117939&text=Chatbot%20redirection%20test"
+
+                    chatDisplay.innerHTML+=`<a id="link" href="https://api.whatsapp.com/send?phone=573113117939&text=Chatbot%20redirection%20test"></a>`
+                    let link = document.getElementById("link");
+                    link.click();
+
                 }
 
                 if (botResponse === "Será contactado por un asesor de servicio al cliente") {
                     alert("Si sirve como se quiere hacer (SAC asesor)")
-                    window.location.href = "https://api.whatsapp.com/send?phone=573167862085&text=Chatbot%20redirection%20test%20SAC%20ASESOR";
+                    chatDisplay.innerHTML+=`<a id="link" href="https://api.whatsapp.com/send?phone=573167862085&text=Chatbot%20redirection%20test%20SAC%20ASESOR" target="_blank">
+</a>`;
+                    let link= document.getElementById("link");
+                    link.click();
                 }
                 // Bot response with avatar
                 chatDisplay.innerHTML += `
@@ -154,6 +161,8 @@
         }
     });
 </script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </body>
 </html>

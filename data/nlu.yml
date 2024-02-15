@@ -81,6 +81,8 @@ nlu:
     - Estoy hablando con un humano?
     - quien eres
     - bot
+    - robot
+    - que es usted?
 - intent: utter_happy
   examples: |
     - Cómo esta?
@@ -135,6 +137,10 @@ nlu:
       let= document.getElementById
   - text: |
       [{}]
+  - text: |
+      ..
+  - text: |
+      {{++}
 - intent: about_company
   examples: |
     - Quien es BBIC

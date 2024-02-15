@@ -1,0 +1,21 @@
+version: "3.1"
+stories:
+- story: happy path 1 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet  # predicted: deny: hello there!
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+- story: happy path 2 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet  # predicted: deny: hello there!
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+- story: bot challenge (.\tests\test_stories.yml)
+  steps:
+  - intent: bot_challenge  # predicted: goodbye: are you a bot?
+  - action: utter_iamabot  # predicted: action_listen after action_unlikely_intent
+  - action: action_listen  # predicted: utter_goodbye

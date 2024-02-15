@@ -10,3 +10,14 @@ rules:
     steps:
     - intent: inject_code
     - action: utter_bad_request
+
+  - rule: Send email rule
+    steps:
+    - intent: send_email
+    - action: utter_send_email
+    - action: utter_goodbye
+
+  - rule: Say hello
+    steps:
+    - intent: greet
+    - action: utter_greet

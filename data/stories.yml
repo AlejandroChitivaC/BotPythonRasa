@@ -68,12 +68,6 @@ stories:
 - story: interactive_story_1
   steps:
   - intent: systems_assessor
-  - action: utter_goodbye
-  - action: end_chat
-
-- story: interactive_story_1
-  steps:
-  - intent: systems_assessor
   - action: utter_systems_assessor
   - action: utter_goodbye
   - action: end_chat
@@ -160,5 +154,29 @@ stories.yml:
   - intent: send_email
   - action: utter_send_email
   - intent: goodbye
+  - action: utter_goodbye
+  - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bad_request
+  - action: utter_bad_request
+  - intent: bad_request
+  - action: utter_bad_request
+
+- story: send_email_story
+  steps:
+  - intent: send_email
+  - action: utter_send_email
+  - action: utter_goodbye
+  - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: send_email
+  - action: utter_send_email
+  - action: utter_goodbye
   - action: utter_goodbye
   - action: end_chat
