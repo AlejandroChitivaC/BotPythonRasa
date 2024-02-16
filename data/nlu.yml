@@ -83,6 +83,8 @@ nlu:
     - bot
     - robot
     - que es usted?
+    - robot
+    - robot?
 - intent: utter_happy
   examples: |
     - Cómo esta?

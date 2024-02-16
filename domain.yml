@@ -47,18 +47,18 @@ responses:
   utter_ask_continue:
   - text: ¿Quieres continuar?
     buttons:
-    - title: "Sí"
+    - title: Sí
       payload: /affirm
-    - title: "No"
+    - title: No
       payload: /deny
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
+- utter_iamabot
 - utter_send_email
 - utter_goodbye
 - end_chat
-- utter_iamabot
 - utter_bad_request
 - utter_systems_assessor
 - utter_greet

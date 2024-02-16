@@ -80,7 +80,7 @@
 <button id="chat-btn" class="btn btn-primary" onclick="toggleChat()">ChatBot</button>
 
 <!-- Contenedor del chat -->
-<div class="chat-container col-sm-4 d-flex flex-column align-items-center justify-content-center">
+<div class="chat-container col-md-3 d-flex flex-column align-items-center justify-content-center">
     <div class="text-center mb-3">
         <img id="logo-bbic" width="100%" src="https://bbiccolombia.netlify.app/assets/img/bbic/logo.png" alt="Bot BBIC">
         <h5 id="chat-title" class="mt-2">BBIC Colombia</h5>
@@ -98,9 +98,17 @@
 
 <script>
     // Función para mostrar/ocultar el contenedor del chat al hacer clic en el botón
-    function toggleChat() {
+   function toggleChat() {
         const chatContainer = document.querySelector('.chat-container');
         chatContainer.style.display = (chatContainer.style.display === 'none' || chatContainer.style.display === '') ? 'block' : 'none';
+
+        // Inicializa TalkJS y abre el chatbox cuando se muestra el contenedor del chat
+        if (chatContainer.style.display === 'block') {
+            const chatbox = new Talk.Chatbox('chat-container', { // Reemplaza 'your-chatbox-id' con el ID de tu chatbox de TalkJS
+                // Configuraciones opcionales de TalkJS
+            });
+            chatbox.mount({ show: true });
+        }
     }
 
     function sendMessage() {
@@ -127,16 +135,13 @@
                 ${userMessage}</div>`;
 
                 if (botResponse === "Será contactado por sistemas") {
-                    alert("Si sirve como se quiere hacer (Sistemas)")
-
-                    chatDisplay.innerHTML+=`<a id="link" href="https://api.whatsapp.com/send?phone=573113117939&text=Chatbot%20redirection%20test"></a>`
+                    chatDisplay.innerHTML+=`<a id="link" target="_blank" href="https://api.whatsapp.com/send?phone=573113117939&text=Chatbot%20redirection%20test"></a>`
                     let link = document.getElementById("link");
                     link.click();
 
                 }
 
                 if (botResponse === "Será contactado por un asesor de servicio al cliente") {
-                    alert("Si sirve como se quiere hacer (SAC asesor)")
                     chatDisplay.innerHTML+=`<a id="link" href="https://api.whatsapp.com/send?phone=573167862085&text=Chatbot%20redirection%20test%20SAC%20ASESOR" target="_blank">
 </a>`;
                     let link= document.getElementById("link");
@@ -161,8 +166,8 @@
         }
     });
 </script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
 
 </body>
 </html>

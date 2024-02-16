@@ -180,3 +180,17 @@ stories.yml:
   - action: utter_goodbye
   - action: utter_goodbye
   - action: end_chat
+
+- story: interactive_story_1
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: interactive_story_1
+  steps:
+  - intent: bot_challenge
+
+- story: interactive_story_1
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
