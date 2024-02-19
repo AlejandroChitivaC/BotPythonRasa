@@ -268,3 +268,58 @@ stories.yml:
     steps:
     - intent: nlu_fallback
     - intent: get_date
+
+  - story: interactive_story_1
+    steps:
+    - intent: greet
+    - intent: get_date
+    - action: action_get_current_date
+    - slot_was_set:
+      - date: February 19 2024
+
+  - story: interactive_story_1
+    steps:
+    - intent: greet
+    - intent: get_date
+      entities:
+      - date: que dia es hoy
+    - action: action_get_current_date
+    - intent: get_date
+      entities:
+      - date: hoy
+    - action: action_get_current_date
+    - action: action_get_current_date
+    - intent: get_date
+    - action: action_get_current_date
+    - slot_was_set:
+      - date: February 19 2024
+
+  - story: interactive_story_1
+    steps:
+    - intent: get_date
+      entities:
+      - date: hoy
+    - slot_was_set:
+      - date: hoy
+    - action: action_get_current_date
+    - slot_was_set:
+      - date: February 19 2024
+
+  - story: interactive_story_1
+    steps:
+    - intent: get_date
+    - action: action_get_current_date
+    - slot_was_set:
+      - date: February 19 2024
+    - intent: get_date
+    - action: action_get_current_date
+    - slot_was_set:
+      - date: February 19 2024
+    - intent: get_date
+      entities:
+      - date: hoy
+    - slot_was_set:
+      - date: hoy
+    - action: action_get_current_date
+    - slot_was_set:
+      - date: February 19 2024

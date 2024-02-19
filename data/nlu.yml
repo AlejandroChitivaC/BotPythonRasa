@@ -187,7 +187,14 @@ nlu:
     - que dia es hoy
     - [hoy](date)
     - que dia es [hoy](date)
+    - que dia es hoy
+    - hoy
+    - fecha
+    - dia
     - action_get_current_date
+    - dia
+    - [que dia es hot]{"entity": "date", "value": "que dia es hoy"}
+    - [hoy](date)
 - regex: inject_code
   examples: |
     - "^[!@#$%^&*,/\\\\()¿~_'<>:;+.=?-]$"

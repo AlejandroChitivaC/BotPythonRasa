@@ -75,3 +75,9 @@ actions:
 - utter_contact_assessor
 - utter_about_company
 - utter_happy
+slots:
+  date:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date
