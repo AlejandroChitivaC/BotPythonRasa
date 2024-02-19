@@ -9,6 +9,7 @@ nlu:
     - buenos dias
     - hi
     - Hol
+    - que dia es hoy
 - intent: goodbye
   examples: |
     - Adios!
@@ -83,7 +84,6 @@ nlu:
     - bot
     - robot
     - que es usted?
-    - robot
     - robot?
 - intent: utter_happy
   examples: |
@@ -168,11 +168,26 @@ nlu:
     - sistema
     - Sistmas
     - sistm
+    - nojsys
+    - Nojsys
 - intent: send_email
   examples: |
     - contacto
     - correo
     - email
+- intent: files_request
+  examples: |
+    - archivos
+    - archibos
+    - archivo
+    - documentos
+    - documento
+- intent: get_date
+  examples: |
+    - que dia es hoy
+    - [hoy](date)
+    - que dia es [hoy](date)
+    - action_get_current_date
 - regex: inject_code
   examples: |
     - "^[!@#$%^&*,/\\\\()¿~_'<>:;+.=?-]$"

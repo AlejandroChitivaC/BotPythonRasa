@@ -1,5 +1,6 @@
 version: '3.1'
 entities:
+- date
 - inject_code
 intents:
 - about_company
@@ -8,6 +9,8 @@ intents:
 - bot_challenge
 - contact_assessor
 - deny
+- files_request
+- get_date
 - goodbye
 - greet
 - mood_great
@@ -44,6 +47,10 @@ responses:
   - text: Oops, no entendí eso, intente ser más claro.
   utter_send_email:
   - text: Entendido, de clic en el botón que lo llevará al formulario de contacto.
+  utter_files_request:
+  - text: De clic en el botón que lo llevará a la sección de archivos
+  utter_current_date:
+  - text: Hoy es {date}
   utter_ask_continue:
   - text: ¿Quieres continuar?
     buttons:
@@ -55,13 +62,16 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
+- action_get_current_date
+- utter_current_date
+- utter_goodbye
+- utter_files_request
+- end_chat
+- utter_greet
 - utter_iamabot
 - utter_send_email
-- utter_goodbye
-- end_chat
 - utter_bad_request
 - utter_systems_assessor
-- utter_greet
 - utter_contact_assessor
 - utter_about_company
 - utter_happy

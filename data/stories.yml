@@ -2,195 +2,269 @@ version: "3.1"
 
 stories:
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
 
-- story: about_company_story
-  steps:
-  - intent: about_company
-  - action: utter_about_company
-  - action: utter_goodbye
+  - story: about_company_story
+    steps:
+      - intent: about_company
+      - action: utter_about_company
 
-- story: contact_assessor_story
-  steps:
-  - intent: contact_assessor
-  - action: utter_contact_assessor
-  - action: utter_goodbye
-  - action: end_chat
+  - story: contact_assessor_story
+    steps:
+      - intent: contact_assessor
+      - action: utter_contact_assessor
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: systems_assessor_story
-  steps:
-  - intent: systems_assessor
-  - action: utter_systems_assessor
-  - action: utter_goodbye
-  - action: end_chat
-
-- story: mixed_story
-  steps:
-  - action: utter_happy
-  - intent: about_company
-  - intent: bad_request
-  - intent: affirm
+  - story: systems_assessor_story
+    steps:
+      - intent: systems_assessor
+      - action: utter_systems_assessor
+      - action: utter_goodbye
+      - action: end_chat
 
 
+  - story: interactive_story_1
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
 
-- story: interactive_story_1
-  steps:
-  - intent: mood_unhappy
-  - intent: bad_request
-  - intent: bot_challenge
-  - intent: bad_request
+  - story: interactive_story_2
+    steps:
+      - intent: systems_assessor
+      - action: utter_systems_assessor
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: interactive_story_1
-  steps:
-  - intent: systems_assessor
-  - action: utter_systems_assessor
-  - action: utter_goodbye
-  - action: end_chat
+  - story: interactive_story_3
+    steps:
+      - intent: systems_assessor
+      - intent: contact_assessor
+      - action: utter_contact_assessor
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: interactive_story_1
-  steps:
-  - intent: systems_assessor
-  - intent: contact_assessor
-  - action: utter_contact_assessor
-  - action: utter_goodbye
-  - action: end_chat
+  - story: interactive_story_4
+    steps:
+      - intent: bad_request
+      - action: utter_bad_request
 
-- story: interactive_story_1
-  steps:
-  - intent: bad_request
-  - intent: bad_request
+  - story: interactive_story_5
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: nlu_fallback
+      - intent: systems_assessor
+      - action: utter_systems_assessor
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: interactive_story_1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: nlu_fallback
-  - intent: systems_assessor
-  - action: utter_systems_assessor
-  - action: utter_goodbye
-  - action: end_chat
+  - story: interactive_story_6
+    steps:
+      - intent: systems_assessor
+      - action: utter_systems_assessor
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: interactive_story_1
-  steps:
-  - intent: systems_assessor
-  - action: utter_systems_assessor
-  - action: utter_goodbye
-  - action: end_chat
-
-- story: interactive_story_1
-  steps:
-  - intent: bad_request
-  - action: utter_bad_request
+  - story: interactive_story_7
+    steps:
+      - intent: bad_request
+      - action: utter_bad_request
 
 stories.yml:
 
-- story: User provides inject code
-  steps:
-  - user: |
-      ¡?
-  - intent: bad_request
-  - action: utter_bad_request
+  - story: User provides inject code
+    steps:
+      - user: |
+          ¡?
+      - intent: bad_request
+      - action: utter_bad_request
 
 
 
 
 
-- story: interactive_story_1
-  steps:
-  - intent: about_company
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - story: interactive_story_8
+    steps:
+      - intent: about_company
+      - intent: bot_challenge
+      - action: utter_iamabot
 
-- story: interactive_story_1
-  steps:
-  - intent: nlu_fallback
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - story: interactive_story_9
+    steps:
+      - intent: nlu_fallback
+      - intent: bot_challenge
+      - action: utter_iamabot
 
-- story: interactive_story_1
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - story: interactive_story_10
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
 
-- story: interactive_story_1
-  steps:
-  - intent: send_email
-  - action: utter_send_email
+  - story: interactive_story_11
+    steps:
+      - intent: send_email
+      - action: utter_send_email
 
-- story: interactive_story_1
-  steps:
-  - intent: send_email
-  - action: utter_send_email
-  - action: utter_goodbye
-  - action: end_chat
+  - story: interactive_story_12
+    steps:
+      - intent: send_email
+      - action: utter_send_email
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: interactive_story_1
-  steps:
-  - intent: send_email
-  - action: utter_send_email
-  - intent: goodbye
-  - action: utter_goodbye
-  - action: end_chat
+  - story: interactive_story_13
+    steps:
+      - intent: send_email
+      - action: utter_send_email
+      - intent: goodbye
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: interactive_story_1
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-  - intent: bad_request
-  - action: utter_bad_request
-  - intent: bad_request
-  - action: utter_bad_request
+  - story: interactive_story_14
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+      - intent: bad_request
+      - action: utter_bad_request
+      - intent: bad_request
+      - action: utter_bad_request
 
-- story: send_email_story
-  steps:
-  - intent: send_email
-  - action: utter_send_email
-  - action: utter_goodbye
-  - action: end_chat
+  - story: send_email_story
+    steps:
+      - intent: send_email
+      - action: utter_send_email
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: interactive_story_1
-  steps:
-  - intent: send_email
-  - action: utter_send_email
-  - action: utter_goodbye
-  - action: utter_goodbye
-  - action: end_chat
+  - story: interactive_story_15
+    steps:
+      - intent: send_email
+      - action: utter_send_email
+      - action: utter_goodbye
+      - action: utter_goodbye
+      - action: end_chat
 
-- story: interactive_story_1
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - story: interactive_story_16
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
 
-- story: interactive_story_1
-  steps:
-  - intent: bot_challenge
+  - story: interactive_story_17
+    steps:
+      - intent: bot_challenge
 
-- story: interactive_story_1
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - story: interactive_story_18
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - story: interactive_story_19
+    steps:
+      - intent: goodbye
+      - intent: files_request
+
+  - story: interactive_story_20
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: files_request
+      - action: utter_files_request
+      - action: utter_goodbye
+      - action: end_chat
+
+  - story: interactive_story_21
+    steps:
+      - intent: files_request
+      - action: utter_files_request
+      - action: end_chat
+
+  - story: interactive_story_22
+    steps:
+      - intent: bot_challenge
+      - intent: utter_iamabot
+
+  - story: interactive_story_23
+    steps:
+      - intent: files_request
+      - action: utter_files_request
+
+
+  - story: user asks for current date
+    steps:
+      - user: |
+          ¿Qué día es hoy?
+      - action: action_get_current_date
+      - action: utter_current_date
+
+
+  - story: interactive_story_24
+    steps:
+      - intent: greet
+      - intent: get_date
+      - action: action_get_current_date
+      - action: utter_current_date
+
+  - story: interactive_story_25
+    steps:
+      - intent: greet
+      - intent: get_date
+      - action: action_get_current_date
+      - action: utter_current_date
+
+  - story: interactive_story_26
+    steps:
+      - intent: greet
+      - intent: get_date
+      - action: action_get_current_date
+
+  - story: interactive_story_27
+    steps:
+      - intent: get_date
+      - action: action_get_current_date
+
+
+  - story: interactive_story_28
+    steps:
+    - intent: greet
+    - intent: get_date
+      entities:
+      - date: hoy
+    - action: action_get_current_date
+
+  - story: interactive_story_29
+    steps:
+    - intent: get_date
+      entities:
+      - date: hoy
+    - action: action_get_current_date
+
+  - story: interactive_story_1
+    steps:
+    - intent: nlu_fallback
+    - intent: get_date

@@ -29,26 +29,19 @@
 
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
+from datetime import datetime
 
 
-class ActionMostrarOpcion1(Action):
+class ActionGetCurrentDate(Action):
     def name(self) -> Text:
-        return "opcion 1"
+        return "action_get_current_date"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(template="utter_greet_mostrar_opcion1")
-        return []
+    async def run(
+            self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        current_date = datetime.now().strftime("%B %d %Y")
+        dispatcher.utter_message(template="utter_current_date", text=current_date)
 
-
-class ActionMostrarOpcion2(Action):
-    def name(self) -> Text:
-        return "action_mostrar_opcion2"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(template="utter_greet_mostrar_opcion2")
-        return []
+        return [SlotSet("date", current_date)]

@@ -3,21 +3,40 @@ version: "3.1"
 rules:
   - rule: Say goodbye anytime the user says goodbye
     steps:
-    - intent: goodbye
-    - action: utter_goodbye
+      - intent: goodbye
+      - action: utter_goodbye
 
   - rule: Say bad_request on code injection intent
     steps:
-    - intent: inject_code
-    - action: utter_bad_request
+      - intent: inject_code
+      - action: utter_bad_request
 
   - rule: Send email rule
     steps:
-    - intent: send_email
-    - action: utter_send_email
-    - action: utter_goodbye
+      - intent: send_email
+      - action: utter_send_email
+      - action: utter_goodbye
 
   - rule: Say hello
     steps:
-    - intent: greet
-    - action: utter_greet
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Files rule
+    steps:
+      - intent: files_request
+      - action: utter_files_request
+  - rule: Bot challenge rule
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+  - rule: Bad request rule
+    steps:
+      - intent: bad_request
+      - action: utter_bad_request
+
+  - rule: Answer the current date when asked
+    steps:
+      - intent: ask_current_date
+      - action: action_get_current_date
+      - action: utter_current_date
