@@ -38,9 +38,9 @@ responses:
   utter_iamabot:
   - text: Soy un bot, creado por BBIC
   utter_contact_assessor:
-  - text: Será contactado por un asesor de servicio al cliente
+  - text: Será redirigido a un asesor de servicio al cliente
   utter_systems_assessor:
-  - text: Será contactado por sistemas
+  - text: Será redirigido a sistemas
   utter_about_company:
   - text: Somos una empresa de transporte expreso de documentos y mercancías, representantes exclusivos y agentes comerciales de SKYNET International Courier, con cobertura mundial.
   utter_bad_request:
@@ -62,17 +62,17 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
+- utter_systems_assessor
+- utter_goodbye
+- end_chat
+- utter_contact_assessor
 - action_get_current_date
 - utter_current_date
-- utter_goodbye
 - utter_files_request
-- end_chat
 - utter_greet
 - utter_iamabot
 - utter_send_email
 - utter_bad_request
-- utter_systems_assessor
-- utter_contact_assessor
 - utter_about_company
 - utter_happy
 slots:

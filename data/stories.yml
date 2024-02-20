@@ -61,28 +61,10 @@ stories:
       - action: utter_goodbye
       - action: end_chat
 
-  - story: interactive_story_3
-    steps:
-      - intent: systems_assessor
-      - intent: contact_assessor
-      - action: utter_contact_assessor
-      - action: utter_goodbye
-      - action: end_chat
-
   - story: interactive_story_4
     steps:
       - intent: bad_request
       - action: utter_bad_request
-
-  - story: interactive_story_5
-    steps:
-      - intent: greet
-      - action: utter_greet
-      - intent: nlu_fallback
-      - intent: systems_assessor
-      - action: utter_systems_assessor
-      - action: utter_goodbye
-      - action: end_chat
 
   - story: interactive_story_6
     steps:
@@ -323,3 +305,23 @@ stories.yml:
     - action: action_get_current_date
     - slot_was_set:
       - date: February 19 2024
+
+  - story: interactive_story_1
+    steps:
+    - intent: contact_assessor
+    - action: utter_contact_assessor
+    - action: utter_goodbye
+    - action: end_chat
+
+  - story: interactive_story_1
+    steps:
+    - intent: systems_assessor
+    - action: utter_systems_assessor
+    - action: utter_goodbye
+    - action: end_chat
+
+  - story: interactive_story_1
+    steps:
+    - intent: action_listen
+    - intent: systems_assessor
+    - action: utter_systems_assessor
