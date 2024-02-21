@@ -1,83 +1,87 @@
 version: '3.1'
 entities:
-- date
-- inject_code
+  - date
+  - inject_code
 intents:
-- about_company
-- affirm
-- bad_request
-- bot_challenge
-- contact_assessor
-- deny
-- files_request
-- get_date
-- goodbye
-- greet
-- mood_great
-- mood_unhappy
-- nlu_fallback
-- send_email
-- systems_assessor
+  - about_company
+  - affirm
+  - bad_request
+  - bot_challenge
+  - contact_assessor
+  - deny
+  - files_request
+  - get_date
+  - get_house_tracking
+  - goodbye
+  - greet
+  - mood_great
+  - mood_unhappy
+  - nlu_fallback
+  - send_email
+  - systems_assessor
 responses:
+  utter_tracking_house:
+    - text: Entendido, de clic en el botón que lo llevará a rastrear la guía
   utter_greet:
-  - text: Hola, bienvenido a BBIC ¿En qué puedo ayudarte?
-    buttons:
-    - title: Mostrar Opciones
-      payload: /mostrar_opciones
-    - title: Salir
-      payload: /end_chat
+    - text: Hola, bienvenido a BBIC ¿En qué puedo ayudarte?
+      buttons:
+        - title: Mostrar Opciones
+          payload: /mostrar_opciones
+        - title: Salir
+          payload: /end_chat
   utter_cheer_up:
-  - text: 'Aquí hay algo para animarte:'
-    image: https://i.imgur.com/nGF1K8f.jpg
+    - text: 'Aquí hay algo para animarte:'
+      image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
-  - text: ¿Te ayudó eso?
+    - text: ¿Te ayudó eso?
   utter_happy:
-  - text: Bien, gracias!
+    - text: Bien, gracias!
   utter_goodbye:
-  - text: Hasta pronto!
+    - text: Hasta pronto!
   utter_iamabot:
-  - text: Soy un bot, creado por BBIC
+    - text: Soy un bot, creado por BBIC
   utter_contact_assessor:
-  - text: Será redirigido a un asesor de servicio al cliente
+    - text: Será redirigido a un asesor de servicio al cliente
   utter_systems_assessor:
-  - text: Será redirigido a sistemas
+    - text: Será redirigido a sistemas
   utter_about_company:
-  - text: Somos una empresa de transporte expreso de documentos y mercancías, representantes exclusivos y agentes comerciales de SKYNET International Courier, con cobertura mundial.
+    - text: Somos una empresa de transporte expreso de documentos y mercancías, representantes exclusivos y agentes comerciales de SKYNET International Courier, con cobertura mundial.
   utter_bad_request:
-  - text: Oops, no entendí eso, intente ser más claro.
+    - text: Oops, no entendí eso, intente ser más claro.
   utter_send_email:
-  - text: Entendido, de clic en el botón que lo llevará al formulario de contacto.
+    - text: Entendido, de clic en el botón que lo llevará al formulario de contacto.
   utter_files_request:
-  - text: De clic en el botón que lo llevará a la sección de archivos
+    - text: De clic en el botón que lo llevará a la sección de archivos
   utter_current_date:
-  - text: Hoy es {date}
+    - text: Hoy es {date}
   utter_ask_continue:
-  - text: ¿Quieres continuar?
-    buttons:
-    - title: Sí
-      payload: /affirm
-    - title: No
-      payload: /deny
+    - text: ¿Quieres continuar?
+      buttons:
+        - title: Sí
+          payload: /affirm
+        - title: No
+          payload: /deny
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
-- utter_systems_assessor
-- utter_goodbye
-- end_chat
-- utter_contact_assessor
-- action_get_current_date
-- utter_current_date
-- utter_files_request
-- utter_greet
-- utter_iamabot
-- utter_send_email
-- utter_bad_request
-- utter_about_company
-- utter_happy
+  - utter_tracking_house
+  - utter_systems_assessor
+  - utter_goodbye
+  - end_chat
+  - utter_contact_assessor
+  - action_get_current_date
+  - utter_current_date
+  - utter_files_request
+  - utter_greet
+  - utter_iamabot
+  - utter_send_email
+  - utter_bad_request
+  - utter_about_company
+  - utter_happy
 slots:
   date:
     type: text
     mappings:
-    - type: from_entity
-      entity: date
+      - type: from_entity
+        entity: date

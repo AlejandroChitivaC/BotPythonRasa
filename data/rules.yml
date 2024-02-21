@@ -39,10 +39,16 @@ rules:
     steps:
       - intent: get_date
       - action: action_get_current_date
+
   - rule: Get systems support
     steps:
       - intent: systems_assessor
       - action: utter_systems_assessor
       - action: utter_goodbye
       - action: end_chat
+
+  - rule: Get House Tracking
+    steps:
+      - intent: get_house_tracking
+      - action: utter_tracking_house
 

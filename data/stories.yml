@@ -325,3 +325,9 @@ stories.yml:
     - intent: action_listen
     - intent: systems_assessor
     - action: utter_systems_assessor
+
+  - story: interactive_story_1
+    steps:
+    - intent: get_date
+    - intent: get_house_tracking
+    - action: utter_tracking_house

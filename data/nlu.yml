@@ -192,6 +192,16 @@ nlu:
     - dia
     - action_get_current_date
     - [que dia es hot]{"entity": "date", "value": "que dia es hoy"}
+- intent: get_house_tracking
+  examples: |
+    - guia
+    - house
+    - track
+    - rastreo
+    - rastrear
+    - guia hija
+    - tracking
+    - paquete
 - synonym: que dia es hoy
   examples: |
     - que dia es hot
