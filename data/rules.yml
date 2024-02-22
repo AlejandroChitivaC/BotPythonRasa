@@ -52,3 +52,8 @@ rules:
       - intent: get_house_tracking
       - action: utter_tracking_house
 
+  - rule: Get Services Info
+    steps:
+      - intent: get_services_info
+      - action: utter_services_info
+
